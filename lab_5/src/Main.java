@@ -2,38 +2,38 @@ import java.util.*;
 import java.util.stream.*;
 
 public class Main {
-    public static List<Integer> filterOddNumbers(List<Integer> numbers) {
+    /*1*/public static List<Integer> filterOddNumbers(List<Integer> numbers) {
         return numbers.stream()
                 .filter(n -> n % 2 != 0)
                 .collect(Collectors.toList());
     }
 
-    public static double findAverage(List<Double> values) {
+    /*2*/public static double findAverage(List<Double> values) {
         return values.stream()
                 .mapToDouble(Double::doubleValue)
                 .average()
                 .orElse(0.0);
     }
 
-    public static List<String> sortStringsAlphabet(List<String> strings) {
+    /*3*/public static List<String> sortStringsAlphabet(List<String> strings) {
         return strings.stream()
                 .sorted()
                 .collect(Collectors.toList());
     }
 
-    public static int sumEvenNumb(List<Integer> numbers) {
+    /*4*/public static int sumEvenNumb(List<Integer> numbers) {
         return numbers.stream()
                 .filter(n -> n % 2 == 0)
                 .mapToInt(Integer::intValue)
                 .sum();
     }
 
-    public static long factorial(int number) {
+    /*5*/public static long factorial(int number) {
         return IntStream.rangeClosed(1, number)
                 .reduce(1, (a, b) -> a * b);
     }
 
-    public static Map<String, Integer> sumAndProduct(List<Integer> numbers) {
+    /*6*/public static Map<String, Integer> sumAndProduct(List<Integer> numbers) {
         int sum = numbers.stream().mapToInt(i -> i).sum();
         int product = numbers.stream().reduce(1, (a, b) -> a * b);
 
@@ -43,36 +43,36 @@ public class Main {
         return result;
     }
 
-    public static List<Integer> squareNumbers(List<Integer> numbers) {
+    /*7*/public static List<Integer> squareNumbers(List<Integer> numbers) {
         return numbers.stream()
                 .map(n -> n * n)
                 .collect(Collectors.toList());
     }
 
-    public static List<String> sortByLength(List<String> strings) {
+    /*8*/public static List<String> sortByLength(List<String> strings) {
         return strings.stream()
                 .sorted(Comparator.comparingInt(String::length))
                 .collect(Collectors.toList());
     }
 
-    public static long countWords(String sentence) {
+    /*9*/public static long countWords(String sentence) {
         return Arrays.stream(sentence.trim().split("\\s+"))
                 .filter(word -> !word.isEmpty())
                 .count();
     }
 
-    public static Optional<String> findFirstNotEmpty(List<String> strings) {
+    /*10*/public static Optional<String> findFirstNotEmpty(List<String> strings) {
         return strings.stream()
                 .filter(s -> !s.isEmpty())
                 .findFirst();
     }
 
-    public static boolean allStartWithUpperCase(List<String> strings) {
+    /*11*/public static boolean allStartWithUpperCase(List<String> strings) {
         return strings.stream()
                 .allMatch(s -> !s.isEmpty() && Character.isUpperCase(s.charAt(0)));
     }
 
-    public static Optional<Integer> findSecondLargest(List<Integer> numbers) {
+   /*12*/public static Optional<Integer> findSecondLargest(List<Integer> numbers) {
         return numbers.stream()
                 .distinct()
                 .sorted(Comparator.reverseOrder())
@@ -80,7 +80,7 @@ public class Main {
                 .findFirst();
     }
 
-    public static Optional<Integer> findMaxEven(List<Integer> numbers) {
+    /*13*/public static Optional<Integer> findMaxEven(List<Integer> numbers) {
         return numbers.stream()
                 .filter(n -> n % 2 == 0)
                 .max(Integer::compare);
